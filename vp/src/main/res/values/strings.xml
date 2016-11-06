@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VP</string>
+    <string name="host_label">Telnet to:</string>
+    <string name="launch_telnet_session">Connect</string>
+    <string name="default_telnet_hostname">192.168.1.8</string>
+
+    <string name="entry_send">↑</string><!-- maybe useless ?? -->
+
+</resources>
