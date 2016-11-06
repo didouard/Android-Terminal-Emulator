@@ -44,10 +44,7 @@ public class TermActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.term_activity);
 
-        /* Text entry box at the bottom of the activity.  Note that you can
-           also send input (whether from a hardware device or soft keyboard)
-           directly to the EmulatorView. */
-        mEntry = (EditText) findViewById(R.id.term_entry);
+        /*mEntry = (EditText) findViewById(R.id.term_entry);
         mEntry.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int action, KeyEvent ev) {
                 // Ignore enter-key-up events
@@ -67,11 +64,11 @@ public class TermActivity extends Activity
                 TextKeyListener.clear(e);
                 return true;
             }
-        });
+        });*/
 
         /* Sends the content of the text entry box to the terminal, without
            sending a carriage return afterwards */
-        Button sendButton = (Button) findViewById(R.id.term_entry_send);
+        /*Button sendButton = (Button) findViewById(R.id.term_entry_send);
         sendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Don't try to send something if we're not connected yet
@@ -83,7 +80,7 @@ public class TermActivity extends Activity
                 session.write(e.toString());
                 TextKeyListener.clear(e);
             }
-        });
+        });*/
 
         /**
          * EmulatorView setup.
@@ -125,14 +122,6 @@ public class TermActivity extends Activity
     }
 
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            default:
-                return super.onKeyUp(keyCode, event);
-        }
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
 
@@ -140,7 +129,7 @@ public class TermActivity extends Activity
            on screen. */
         mEmulatorView.onResume();
 
-        mEntry.requestFocus();
+        /*mEntry.requestFocus();*/
     }
 
     @Override
@@ -289,5 +278,11 @@ public class TermActivity extends Activity
         TermSession session = new TelnetSession(termIn, termOut);
         mEmulatorView.attachSession(session);
         mSession = session;
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        Log.i("key pressed", String.valueOf(event.getKeyCode()));
+        return super.dispatchKeyEvent(event);
     }
 }
