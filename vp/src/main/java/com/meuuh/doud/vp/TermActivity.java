@@ -279,10 +279,4 @@ public class TermActivity extends Activity
         mEmulatorView.attachSession(session);
         mSession = session;
     }
-
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        Log.i("key pressed", String.valueOf(event.getKeyCode()));
-        return super.dispatchKeyEvent(event);
-    }
 }

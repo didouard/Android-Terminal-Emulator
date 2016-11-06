@@ -6,4 +6,7 @@
 
     <string name="entry_send">↑</string><!-- maybe useless ?? -->
 
+    <!-- Keyboard -->
+    <string name="simple_ime">Simple IME</string>
+    <string name="subtype_en_US">Francais (FR)</string>
 </resources>
